@@ -2,8 +2,24 @@
 #include <string>
 #include <vector>
 #include "Infix.h"
-
+#include <fstream>
 using namespace std;
+int introduction()
+{
+	fstream f;
+	f.open("Note.txt", ios::in);
+
+	string data;
+
+	string line;
+	while (!f.eof())
+{
+	char temp[255];
+	f.getline(temp, 255);
+	std::string line = temp;
+	std::cout << line << std::endl;
+}
+}
 
 int foundSpace(string str)
 {
@@ -263,6 +279,7 @@ void Process(string& Input)
 
 void main()
 {
+	introduction();
 	string Input;
 	cout << "\nEnter: ";
 	getline(cin, Input);
