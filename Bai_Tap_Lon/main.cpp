@@ -3,23 +3,8 @@
 #include <vector>
 #include "Infix.h"
 #include <fstream>
+
 using namespace std;
-int introduction()
-{
-	fstream f;
-	f.open("Note.txt", ios::in);
-
-	string data;
-
-	string line;
-	while (!f.eof())
-{
-	char temp[255];
-	f.getline(temp, 255);
-	std::string line = temp;
-	std::cout << line << std::endl;
-}
-}
 
 int foundSpace(string str)
 {
@@ -247,11 +232,15 @@ void quickTransition(string& Input)
 
 bool Step1(string& Input)
 {
-	deleteSpace(Input);
-	if (foundNumber(Input) == -1 && foundOperator(Input) == -1)
+	if (foundNumber(Input) != -1 && foundSpace(Input) != -1 && foundOperator(Input) == -1)
 	{
 		return false;
 	}
+	if (foundNumber(Input) == -1 && foundOperator(Input) != -1)
+	{
+		return false;
+	}
+	deleteSpace(Input);
 	detailOperator(Input);
 	return true;
 }
@@ -277,12 +266,32 @@ void Process(string& Input)
 		cout << "Result: Error" << endl;
 }
 
+void Introduce()
+{
+	fstream f;
+	f.open("Note.txt", ios::in);
+
+	string data;
+
+	string line;
+	while (!f.eof())
+	{
+		char temp[255];
+		f.getline(temp, 255);
+		string line = temp;
+		cout << line << std::endl;
+	}
+	system("pause");
+	system("cls");
+}
+
 void main()
 {
-	introduction();
+	Introduce();
 	string Input;
 	cout << "\nEnter: ";
 	getline(cin, Input);
+	
 
 	Process(Input);
 
