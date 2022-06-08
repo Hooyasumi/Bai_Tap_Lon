@@ -13,6 +13,6 @@ public:
 	bool isEmpty();
 	Node* createNode(Data x);
 	void Push(Data x);
-	int Pop(Data& x);
+	bool Pop(Data& x);
 	Node* getHead();
 };

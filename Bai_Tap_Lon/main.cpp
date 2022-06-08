@@ -6,6 +6,22 @@
 
 using namespace std;
 
+void Introduce()
+{
+	fstream f;
+	f.open("Note.txt", ios::in);
+	string line;
+	while (!f.eof())
+	{
+		char temp[255];
+		f.getline(temp, 255);
+		string line = temp;
+		cout << line << std::endl;
+	}
+	system("pause");
+	system("cls");
+}
+
 int foundSpace(string str)
 {
 	for (int i = 0; i < str.length(); i++)
@@ -28,7 +44,7 @@ int foundOperator(string str)
 {
 	for (int i = 0; i < str.length(); i++)
 	{
-		if (str[i] == 'sqrt' || str[i] == 'cos' || str[i] == 'sin' || str[i] == 'log' || str[i] == 'exp' || str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' || str[i] == '!')
+		if (str[i] == 'sqrt' || str[i] == 'cos' || str[i] == 'sin' || str[i] == 'log' || str[i] == 'exp' || str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' || str[i] == '!' || str[i] == '%')
 			return i;
 	}
 	return -1;
@@ -79,7 +95,7 @@ void parseInput(string Input, vector<string>& M)
 			if (i < length - 1)
 			{
 				int j = i + 1;
-				if (Input[j] == '(' || Input[j] == ')' || Input[j] == '*' || Input[j] == '/' || Input[j] == '+' || Input[j] <= '-' || Input[j] == '%' || Input[j] == '^' || Input[j] == 't' || Input[j] == 'n' || Input[j] == 'p' || Input[j] == 'cos' || Input[j] == 'g' || Input[j] == '!' || Input[j] == '@')
+				if (Input[j] == '(' || Input[j] == ')' || Input[j] == '*' || Input[j] == '/' || Input[j] == '+' || Input[j] <= '-' || Input[j] == '%' || Input[j] == '^' || Input[j] == 't' || Input[j] == 'n' || Input[j] == 'p' || Input[j] == 'cos' || Input[j] == 'g' || Input[j] == '!' || Input[j] == '#')
 				{
 					M.push_back(Input.substr(i - count, 1 + count));
 					count = 0;
@@ -95,7 +111,7 @@ void parseInput(string Input, vector<string>& M)
 		}
 		else
 		{
-			if (Input[i] == '(' || Input[i] == ')' || Input[i] == '*' || Input[i] == '/' || Input[i] == '+' || Input[i] == '-' || Input[i] == '%' || Input[i] == '^' || Input[i] == 't' || Input[i] == 's' || Input[i] == 'p' || Input[i] == 'g' || Input[i] == '!' || Input[i] == 'n' || Input[i] == '@')
+			if (Input[i] == '(' || Input[i] == ')' || Input[i] == '*' || Input[i] == '/' || Input[i] == '+' || Input[i] == '-' || Input[i] == '%' || Input[i] == '^' || Input[i] == 't' || Input[i] == 's' || Input[i] == 'p' || Input[i] == 'g' || Input[i] == '!' || Input[i] == 'n' || Input[i] == '#')
 			{
 				string temp(1, Input[i]);
 				M.push_back(temp);
@@ -220,7 +236,7 @@ void quickTransition(string& Input)
 
 				if (Input[i] == ')' && count == 0)
 				{
-					Input.insert(i + 1, "@");
+					Input.insert(i + 1, "#");
 					break;
 				}
 				i++;
@@ -266,32 +282,12 @@ void Process(string& Input)
 		cout << "Result: Error" << endl;
 }
 
-void Introduce()
-{
-	fstream f;
-	f.open("Note.txt", ios::in);
-
-	string data;
-
-	string line;
-	while (!f.eof())
-	{
-		char temp[255];
-		f.getline(temp, 255);
-		string line = temp;
-		cout << line << std::endl;
-	}
-	system("pause");
-	system("cls");
-}
-
 void main()
 {
 	Introduce();
 	string Input;
 	cout << "\nEnter: ";
 	getline(cin, Input);
-	
 
 	Process(Input);
 

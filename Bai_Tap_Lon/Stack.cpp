@@ -17,7 +17,9 @@ Stack::~Stack()
 
 bool Stack::isEmpty()
 {
-	return (pHead == NULL ? 1 : 0);
+	if (pHead == NULL)
+		return true;
+	return false;
 }
 
 Node* Stack::createNode(Data x)
@@ -42,11 +44,11 @@ void Stack::Push(Data x)
 	}
 }
 
-int Stack::Pop(Data& x)
+bool Stack::Pop(Data& x)
 {
 	if (isEmpty())
 	{
-		return 0;
+		return false;
 	}
 	else
 	{
@@ -55,7 +57,7 @@ int Stack::Pop(Data& x)
 		pHead = p->pNext;
 		delete p;
 	}
-	return 1;
+	return true;
 }
 
 Node* Stack::getHead()

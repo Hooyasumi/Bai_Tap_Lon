@@ -12,7 +12,7 @@ Infix::~Infix()
 
 int Infix::UT(string x)
 {
-	if (x == "t" || x == "p" || x == "n" || x == "s" || x == "!" || x == "g" || x == "@")
+	if (x == "t" || x == "p" || x == "n" || x == "s" || x == "!" || x == "g" || x == "#")
 		return 3;
 	if (x == "*" || x == "/" || x == "%" || x == "^")
 		return 2;
@@ -27,7 +27,7 @@ int Infix::HT(string x)
 {
 	if (x == "(" || x == ")")
 		return 3;
-	else if (x == "*" || x == "/" || x == "%" || x == "+" || x == "-" || x == "^" || x == "t" || x == "n" || x == "s" || x == "g" || x == "p" || x == "!" || x == "@")
+	else if (x == "*" || x == "/" || x == "%" || x == "+" || x == "-" || x == "^" || x == "t" || x == "n" || x == "s" || x == "g" || x == "p" || x == "!" || x == "#")
 		return 2;
 	else
 		return 1;
@@ -48,7 +48,7 @@ string Infix::calculateValue(string b, string x, string a)
 	if (x == "g") //log
 		fResult = log(atof(a.c_str()));
 
-	if (x == "@")
+	if (x == "#")
 	{
 		fResult = -(atof(a.c_str()));
 	}
@@ -77,6 +77,9 @@ string Infix::calculateValue(string b, string x, string a)
 		fResult = atof(b.c_str()) + atof(a.c_str());
 	if (x == "-")
 		fResult = atof(b.c_str()) - atof(a.c_str());
+	if (x == "%")
+		fResult = int(atof(b.c_str())) % int(atof(a.c_str()));
+
 
 	string strResult = to_string(fResult);
 	return strResult;
