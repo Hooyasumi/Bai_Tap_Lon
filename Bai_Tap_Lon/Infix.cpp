@@ -32,52 +32,52 @@ int Infix::HT(string x)
 	else
 		return 1;
 }
-string Infix::calculateValue(string b, string x, string a)
+string Infix::calculateValue(string c, string b, string a)
 {
 	float fResult = 0;
 
-	if (x == "t") //sqrt
+	if (b == "t") //sqrt
 		fResult = sqrt(atof(a.c_str()));
 
-	if (x == "n") //sin
+	if (b == "n") //sin
 		fResult = sin(atof(a.c_str()));
 
-	if (x == "s") //cos
+	if (b == "s") //cos
 		fResult = cos(atof(a.c_str()));
 
-	if (x == "g") //log
+	if (b == "g") //log
 		fResult = log(atof(a.c_str()));
 
-	if (x == "#")
+	if (b == "#")
 	{
 		fResult = -(atof(a.c_str()));
 	}
 
-	if (x == "!") //frac
+	if (b == "!") //frac
 	{
 		fResult = 1;
 		for (int i = 2; i <= int(atof(a.c_str())); i++)
 			fResult *= i;
 	}
-	if (x == "p") //exp
+	if (b == "p") //exp
 		fResult = exp(atof(a.c_str()));
 
-	if (x == "^")
+	if (b == "^")
 	{
 		fResult = 1;
 		for (int i = 1; i <= int(atof(a.c_str())); i++)
-			fResult = fResult * atof(b.c_str());
+			fResult = fResult * atof(c.c_str());
 	}
 
-	if (x == "*")
+	if (b == "*")
 		fResult = atof(b.c_str()) * atof(a.c_str());
-	if (x == "/")
+	if (b == "/")
 		fResult = atof(b.c_str()) / atof(a.c_str());
-	if (x == "+")
+	if (b == "+")
 		fResult = atof(b.c_str()) + atof(a.c_str());
-	if (x == "-")
+	if (b == "-")
 		fResult = atof(b.c_str()) - atof(a.c_str());
-	if (x == "%")
+	if (b == "%")
 		fResult = int(atof(b.c_str())) % int(atof(a.c_str()));
 
 

@@ -287,7 +287,7 @@ void main()
 	Introduce();
 
 	string Input;
-	cout << "\nEnter: ";
+	cout << "\nEnter: "; 
 	getline(cin, Input);
 
 	Process(Input);
