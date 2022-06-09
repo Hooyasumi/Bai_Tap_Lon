@@ -256,8 +256,6 @@ bool Step1(string& Input)
 	{
 		return false;
 	}
-	deleteSpace(Input);
-	detailOperator(Input);
 	return true;
 }
 
@@ -265,6 +263,8 @@ void Step2(string& Input, float& Result)
 {
 	Infix* infix = new Infix();
 	vector<string> M;
+	deleteSpace(Input);
+	detailOperator(Input);
 	quickTransition(Input);
 	parseInput(Input, M);
 	Result = infix->calculateValue(M);
@@ -285,11 +285,11 @@ void Process(string& Input)
 void main()
 {
 	Introduce();
+
 	string Input;
 	cout << "\nEnter: ";
 	getline(cin, Input);
 
 	Process(Input);
-
 	system("pause");
 }
