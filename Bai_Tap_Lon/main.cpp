@@ -104,17 +104,13 @@ void parseInput(string Input, vector<string>& M)
 			}
 			else
 			{
-				M.push_back(Input.substr(i - count, count + 1));
+				M.push_back(Input.substr(i - count, 1 + count));
 				break;
 			}
 		}
 		else
 		{
-			if (Input[i] == '(' || Input[i] == ')' || Input[i] == '*' || Input[i] == '/' || Input[i] == '+' || Input[i] == '-' || Input[i] == '%' || Input[i] == '^' || Input[i] == 't' || Input[i] == 's' || Input[i] == 'p' || Input[i] == 'g' || Input[i] == '!' || Input[i] == 'n' || Input[i] == '#')
-			{
-				string temp(1, Input[i]);
-				M.push_back(temp);
-			}
+			M.push_back(Input.substr(i, 1));
 		}
 	}
 }
