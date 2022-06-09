@@ -70,15 +70,15 @@ string Infix::calculateValue(string c, string b, string a)
 	}
 
 	if (b == "*")
-		fResult = atof(b.c_str()) * atof(a.c_str());
+		fResult = atof(c.c_str()) * atof(a.c_str());
 	if (b == "/")
-		fResult = atof(b.c_str()) / atof(a.c_str());
+		fResult = atof(c.c_str()) / atof(a.c_str());
 	if (b == "+")
-		fResult = atof(b.c_str()) + atof(a.c_str());
+		fResult = atof(c.c_str()) + atof(a.c_str());
 	if (b == "-")
-		fResult = atof(b.c_str()) - atof(a.c_str());
+		fResult = atof(c.c_str()) - atof(a.c_str());
 	if (b == "%")
-		fResult = int(atof(b.c_str())) % int(atof(a.c_str()));
+		fResult = int(atof(c.c_str())) % int(atof(a.c_str()));
 
 
 	string strResult = to_string(fResult);
