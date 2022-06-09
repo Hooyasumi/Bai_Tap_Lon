@@ -10,14 +10,13 @@ void Introduce()
 {
 	fstream f;
 	f.open("Note.txt", ios::in);
-	string line;
 	while (!f.eof())
 	{
 		char temp[255];
 		f.getline(temp, 255);
-		string line = temp;
-		cout << line << std::endl;
+		cout << temp << endl;
 	}
+	f.close();
 	system("pause");
 	system("cls");
 }
