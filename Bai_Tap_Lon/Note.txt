@@ -1,13 +1,20 @@
 HELLO THERE!
-This is program calculate the infix
+This is the program calculating the infix
 In mathematics, an infix operator is a function that applies a calculation to arguments on either side of the function operand
 
-Operator for program: + - * / ^
-function for program: sin(), cos(), exp(), log(), !, sqrt()
+Operators for program: + - * / ^
+functions for program: sin(), cos(), exp(), log(), !, sqrt()
 
-Here is some notes for you when using program
+Take one minute to read our notes before using program
 Note:
 1. The value that you enter for the sin() and cos() functions is radian.
 2. Use parentheses with negative numbers.
 Ex: (-5), sin(-90),...
 3. The program does not support calculations on the field of real numbers. 
+
+
+
+Please contact to us immediately if you have any problems with our programs. 
+We apologise for any inconveniences that you may find.
+
+Thank you for your time. Please support and enjoy using our program !!!
